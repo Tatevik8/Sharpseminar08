@@ -14,38 +14,38 @@ int ReadInt(string text)
 
 void GenerateMatrix(int[,,] matrix)
 {
-  int[] array = new int[matrix.GetLength(0) * matrix.GetLength(1) * matrix.GetLength(2)];
-  int  number;
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    array[i] = new Random().Next(10, 100);
-    number = array[i];
-    if (i >= 1)
+    int[] array = new int[matrix.GetLength(0) * matrix.GetLength(1) * matrix.GetLength(2)];
+    int number;
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      for (int j = 0; j < i; j++)
-      {
-        // while (array[i] == array[j])
-        // {
-        //   array[i] = new Random().Next(10, 100);
-        //   j = 0;
-        //   number = array[i];
-        // }
-        //   number = array[i];
-      }
+        array[i] = new Random().Next(10, 100);
+        number = array[i];
+        if (i >= 1)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                // while (array[i] == array[j])
+                // {
+                //   array[i] = new Random().Next(10, 100);
+                //   j = 0;
+                //   number = array[i];
+                // }
+                number = array[i];
+            }
+        }
     }
-  }
-  int count = 0; 
-  for (int x = 0; x < matrix.GetLength(0); x++)
-  {
-    for (int y = 0; y < matrix.GetLength(1); y++)
+    int count = 0;
+    for (int x = 0; x < matrix.GetLength(0); x++)
     {
-      for (int z = 0; z < matrix.GetLength(2); z++)
-      {
-        matrix[x, y, z] = array[count];
-        count++;
-      }
+        for (int y = 0; y < matrix.GetLength(1); y++)
+        {
+            for (int z = 0; z < matrix.GetLength(2); z++)
+            {
+                matrix[x, y, z] = array[count];
+                count++;
+            }
+        }
     }
-  }
 }
 
 void PrintMatrix(int[,,] matrix)
